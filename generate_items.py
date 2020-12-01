@@ -1,6 +1,5 @@
 # -*- coding: utf8 -*-
-import os
-import random
+
 from random import randrange
 import pygame
 
