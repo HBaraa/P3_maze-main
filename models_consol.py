@@ -124,9 +124,12 @@ class Hero:
 
 class Application:
     def __init__(self):
+        pygame.init()
         self.maze_console = MazeConsole()
 
     def run(self, Maze_path):
+        pygame.mixer.music.load("ressource\\song.wav")
+        pygame.mixer.music.play()
         self.maze_console.parse_level_file(Maze_path)
         self.maze_console.generate_items()
         self.maze_console.display_Maze()
