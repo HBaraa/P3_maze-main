@@ -4,9 +4,9 @@ from game_on_consol import play_on_consol
 
 
 def main():
-
+    """choosing the method of playing"""
     choice = input(
-        "If you want to play on Python console type tapez C elif you want to play on a pygame screen type S "
+        "Type C if you want the game on console or S if you want it on screen"
     )
 
     if choice.upper() == "C":

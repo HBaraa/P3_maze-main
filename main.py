@@ -5,9 +5,6 @@ from generate_items import GenerateObject
 import pygame
 from pygame.locals import QUIT, KEYDOWN, K_DOWN, K_UP, K_RIGHT, K_LEFT
 
-# from models_consol import MazeConsole, Hero, Application
-# application = Application()
-# application.run("labyrinth.txt")
 matrix = []
 
 with open("ressource/labyrinth.txt") as levels:
@@ -97,3 +94,5 @@ while win_or_lose_loop == 1:
             labyrinth.win(win_picture)
         elif not gardian.verify_inventory(macGyver, ether, pipe, needle):
             labyrinth.lose(lose_picture)
+
+pygame.quit()

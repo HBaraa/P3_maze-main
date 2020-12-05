@@ -1,5 +1,4 @@
 # -*- coding: utf8 -*-
-
 import pygame
 
 
@@ -45,11 +44,13 @@ class Maze:
         pygame.display.flip()
 
     def win(self, win):
-        win = pygame.image.load(win).convert()
+        """applicate the picture of win"""
+        win = pygame.image.load(win).convert_alpha()
         self.window.blit(win, (0, 50))
         pygame.display.flip()
 
     def lose(self, lose):
-        lose = pygame.image.load(lose).convert()
+        """applicate the picture of lose"""
+        lose = pygame.image.load(lose).convert_alpha()
         self.window.blit(lose, (100, 100))
         pygame.display.flip()

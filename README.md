@@ -18,7 +18,11 @@ pip install -r requirements.txt  # installation des dépendances
 
 ## Usage
 
-Pour utiliser ce programme vous devez avoir déjà installé python et cloné le repo sur votre machine locale puis vous pouvez l'utiliser en suivant ces commandes pour lancer le jeu:
+Pour utiliser ce programme vous devez avoir déjà installé python et cloné le repo sur votre machine locale puis vous pouvez l'utiliser en suivant ces commandes pour lancer le jeu directement sur la fenêtre de pygame: 
 ```python
 python main.py
+```
+ou vous pouvez choisir entre les deux méthodes du jeu en tapant sur votre terminale:
+```python
+python main_project.py
 ```

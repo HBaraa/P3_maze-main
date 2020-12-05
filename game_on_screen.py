@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*
+import pygame
+from pygame.locals import QUIT, KEYDOWN, K_DOWN, K_UP, K_RIGHT, K_LEFT
 
 from generate_maze import Maze
 from generate_characters import Characters
 from generate_items import GenerateObject
-import pygame
-from pygame.locals import QUIT, KEYDOWN, K_DOWN, K_UP, K_RIGHT, K_LEFT
 
 
 def play_on_screen():
+    """method for generating the game on the screen"""
     matrix = []
 
     with open("ressource/labyrinth.txt") as levels:
@@ -26,8 +27,8 @@ def play_on_screen():
     gardian_picture = base_path + "Gardien.png"
     pipe_picture = base_path + "tube_plastique.png"
     win_picture = base_path + "win.jpg"
-    macGyver_picture = base_path + "MacGyver.png"
     lose_picture = base_path + "lose.jpg"
+    macGyver_picture = base_path + "MacGyver.png"
 
     pygame.init()
 
@@ -35,22 +36,17 @@ def play_on_screen():
     labyrinth.generate_maze()
 
     items = []
-
     macGyver = Characters(macGyver_picture, "s", matrix)
     gardian = Characters(gardian_picture, "f", matrix)
-
     ether = GenerateObject("ether", ether_picture, matrix)
     needle = GenerateObject("needle", needle_picture, matrix)
     pipe = GenerateObject("pipe", pipe_picture, matrix)
-
     items.append(ether)
     items.append(needle)
     items.append(pipe)
     items.append(macGyver)
     items.append(gardian)
-
     labyrinth.refresh_maze(items)
-
     win_or_lose_loop = 1
     game_loop = 1
     pygame.mixer.music.load("ressource\\song.wav")

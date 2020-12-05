@@ -1,10 +1,11 @@
 # -*- coding: utf8 -*-
-
-from random import randrange
 import pygame
+from random import randrange
 
 
 class GenerateObject:
+    """generating items randomly in the maze"""
+
     def __init__(self, name, image, liste):
         self.name = name
         self.image = pygame.image.load(image).convert_alpha()
