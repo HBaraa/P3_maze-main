@@ -10,14 +10,15 @@ Le jeu comporte un seul niveau qui définit les emplacements des murs , de MacGy
 - Cloner le projet depuis le [repository Github](https://github.com/HBaraa/P3_maze-main)
 - A la racine du projet :
 
+```bash
 python -m venv .venv  # ou python3 -m venv .venv
 source .venv/Scripts/activate  # .venv/bin/activate on linux
 pip install -r requirements.txt  # installation des dépendances
-
+```
 
 ## Usage
 
 Pour utiliser ce programme vous devez avoir déjà installé python et cloné le repo sur votre machine locale puis vous pouvez l'utiliser en suivant ces commandes pour lancer le jeu:
-
+```python
 python main.py
-
+```
