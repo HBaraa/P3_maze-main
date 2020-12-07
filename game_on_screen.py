@@ -19,43 +19,40 @@ def play_on_screen():
                     level.append(x)
             matrix.append(level)
 
-    base_path = "ressource/images/"
-    wall = base_path + "mur.png"
-    background = base_path + "background.jpg"
-    needle_picture = base_path + "aiguille.png"
-    ether_picture = base_path + "ether.png"
-    gardian_picture = base_path + "Gardien.png"
-    pipe_picture = base_path + "tube_plastique.png"
-    win_picture = base_path + "win.jpg"
-    lose_picture = base_path + "lose.jpg"
-    macGyver_picture = base_path + "MacGyver.png"
-
+    BASE_PATH = "ressource/images/"
+    WALL = BASE_PATH + "mur.png"
+    BACKGROUND = BASE_PATH + "background.jpg"
+    NEEDLE_PICTURE = BASE_PATH + "aiguille.png"
+    ETHER_PICTURE = BASE_PATH + "ether.png"
+    GARDIAN_PICTURE = BASE_PATH + "Gardien.png"
+    PIPE_PICTURE = BASE_PATH + "tube_plastique.png"
+    WIN_PICTURE = BASE_PATH + "win.jpg"
+    MACGYVER_PICTURE = BASE_PATH + "MacGyver.png"
+    LOSE_PICTURE = BASE_PATH + "lose.jpg"
     pygame.init()
-
-    labyrinth = Maze(background, wall, matrix)
+    labyrinth = Maze(BACKGROUND, WALL, matrix)
     labyrinth.generate_maze()
-
     items = []
-    macGyver = Characters(macGyver_picture, "s", matrix)
-    gardian = Characters(gardian_picture, "f", matrix)
-    ether = GenerateObject("ether", ether_picture, matrix)
-    needle = GenerateObject("needle", needle_picture, matrix)
-    pipe = GenerateObject("pipe", pipe_picture, matrix)
+    macGyver = Characters(MACGYVER_PICTURE, "s", matrix)
+    gardian = Characters(GARDIAN_PICTURE, "f", matrix)
+    ether = GenerateObject("ether", ETHER_PICTURE, matrix)
+    needle = GenerateObject("needle", NEEDLE_PICTURE, matrix)
+    pipe = GenerateObject("pipe", PIPE_PICTURE, matrix)
     items.append(ether)
     items.append(needle)
     items.append(pipe)
     items.append(macGyver)
     items.append(gardian)
     labyrinth.refresh_maze(items)
-    win_or_lose_loop = 1
-    game_loop = 1
+    WIN_OR_LOSE = 1
+    GAME_LOOP = 1
     pygame.mixer.music.load("ressource\\song.wav")
     pygame.mixer.music.play()
-    while game_loop == 1:
+    while GAME_LOOP == 1:
         for event in pygame.event.get():
             if event.type == QUIT:
-                win_or_lose_loop = 0
-                game_loop = 0
+                WIN_OR_LOSE = 0
+                GAME_LOOP = 0
             if event.type == KEYDOWN:
                 if event.key == K_RIGHT:
                     macGyver.move("RIGHT", matrix)
@@ -90,17 +87,17 @@ def play_on_screen():
                     gardian.position_x,
                     gardian.position_y,
                 ):
-                    game_loop = 0
+                    GAME_LOOP = 0
 
-    while win_or_lose_loop == 1:
+    while WIN_OR_LOSE == 1:
         for event in pygame.event.get():
             if event.type == QUIT:
-                win_or_lose_loop = 0
+                WIN_OR_LOSE = 0
 
             if gardian.verify_inventory(macGyver, ether, pipe, needle):
-                labyrinth.win(win_picture)
+                labyrinth.win(WIN_PICTURE)
             elif not gardian.verify_inventory(macGyver, ether, pipe, needle):
-                labyrinth.lose(lose_picture)
+                labyrinth.lose(LOSE_PICTURE)
 
     pygame.quit()
 

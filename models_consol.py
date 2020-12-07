@@ -1,12 +1,13 @@
 # -*- coding: utf8 -*-
-import pygame
 import random
+import pygame
 
 
 class MazeConsole:
     """ Models for generating the game on the console of python """
 
     def __init__(self):
+        """maze attributes"""
         self.hero = Hero()
         self.walls = []
         self.paths = []
@@ -47,6 +48,7 @@ class MazeConsole:
             for path in self.paths
             if path not in (self.hero.position, self.guardian_position)
         ]
+
         for count in range(0, 3):
             good_position = random.choice(whitelist)
             self.items.append(good_position)
@@ -81,10 +83,10 @@ class MazeConsole:
         self.hero.get_item(self.items)
         test_list = [val for val in self.hero.bag if val in self.items]
         if (test_list == self.items) and (self.hero.position in self.hero.bag):
-            print("Great ! Now MacGyver make the syringe ")
+            print("Great! Now MacGyver make the syringe ")
         elif (test_list == self.items) and (self.items == []):
             self.syringe = True
-            print("MacGyver can escape !")
+            print("MacGyver can escape!")
         else:
             self.syringe = False
 
@@ -98,6 +100,7 @@ class Hero:
     """controlling the hero movement"""
 
     def __init__(self):
+        """hero attributes"""
         self.position = None
         self.permut = None
         self.bag = []
@@ -132,6 +135,7 @@ class Application:
     """the application of the game"""
 
     def __init__(self):
+        """pygame initialisation and application attributes"""
         pygame.init()
         self.maze_console = MazeConsole()
 
