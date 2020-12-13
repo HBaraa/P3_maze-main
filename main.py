@@ -6,6 +6,7 @@ from generate_maze import Maze
 from generate_characters import Characters
 from generate_items import GenerateObject
 
+
 """the main of the game"""
 matrix = []
 
@@ -93,8 +94,10 @@ while WIN_OR_LOSE == 1:
             WIN_OR_LOSE = 0
 
         if gardian.verify_inventory(macGyver, ether, pipe, needle):
+            pygame.display.set_mode((576, 540))
             labyrinth.win(WIN_PICTURE)
-        elif not gardian.verify_inventory(macGyver, ether, pipe, needle):
+        elif not macGyver.verify_inventory(gardian, ether, pipe, needle):
+            pygame.display.set_mode((576, 540))
             labyrinth.lose(LOSE_PICTURE)
 
 pygame.quit()

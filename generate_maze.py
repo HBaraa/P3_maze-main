@@ -4,7 +4,7 @@ import pygame
 
 class Maze:
     def __init__(self, background, wall, liste):
-        self.window = pygame.display.set_mode((570, 545))
+        self.window = pygame.display.set_mode((576, 540))
         self.background = pygame.image.load(background).convert()
         self.window.blit(self.background, (0, 0))
         self.liste = liste
@@ -24,7 +24,7 @@ class Maze:
 
             if x == 15:
                 x = 0
-                y += 1  # moveing down
+                y += 1  # moving down
         pygame.display.flip()
 
     def refresh_maze(self, object_to_display):
