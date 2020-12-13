@@ -49,7 +49,7 @@ class MazeConsole:
             if path not in (self.hero.position, self.guardian_position)
         ]
 
-        for count in range(0, 3):
+        for count in range(3):
             good_position = random.choice(whitelist)
             self.items.append(good_position)
             whitelist.remove(good_position)
