@@ -6,7 +6,7 @@ from game_on_consol import play_on_consol
 def main():
     """choosing the method of playing"""
     choice = input(
-        "Type C if you want the game on console or S if you want it on screen"
+        "Type C if you want the game on console or S if you want it on screen:"
     )
 
     if choice.upper() == "C":
