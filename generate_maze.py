@@ -5,6 +5,7 @@ import pygame
 class Maze:
     def __init__(self, background, wall, liste):
         self.window = pygame.display.set_mode((576, 540))
+        pygame.display.set_caption("Aidez MacGyver à s'échapper")
         self.background = pygame.image.load(background).convert()
         self.window.blit(self.background, (0, 0))
         self.liste = liste
