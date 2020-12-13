@@ -4,7 +4,7 @@ from models_consol import Application
 
 
 def play_on_consol():
-    """   method for generating the game on the console of python   """
+    """   function for generating the game on the console of python   """
     application = Application()
     application.run("ressource/labyrinth.txt")
 

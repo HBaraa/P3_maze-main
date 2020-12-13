@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*
 import pygame
+
 from pygame.locals import QUIT, KEYDOWN, K_DOWN, K_UP, K_RIGHT, K_LEFT
 
 from generate_maze import Maze
@@ -8,7 +9,7 @@ from generate_items import GenerateObject
 
 
 def play_on_screen():
-    """method for generating the game on the screen"""
+    """function for generating the game on the screen"""
     matrix = []
 
     with open("ressource/labyrinth.txt") as levels:
@@ -95,8 +96,10 @@ def play_on_screen():
                 WIN_OR_LOSE = 0
 
             if gardian.verify_inventory(macGyver, ether, pipe, needle):
+                pygame.display.set_mode((570, 545))
                 labyrinth.win(WIN_PICTURE)
             elif not gardian.verify_inventory(macGyver, ether, pipe, needle):
+                pygame.display.set_mode((570, 545))
                 labyrinth.lose(LOSE_PICTURE)
 
     pygame.quit()
